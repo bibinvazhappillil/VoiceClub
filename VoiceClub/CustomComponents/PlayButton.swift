@@ -9,26 +9,6 @@
 import Foundation
 import UIKit
 
-public enum PlayButtonState {
-    case paused
-    case playing
-}
-protocol PlayButtonDelegate {
-    func playButton(playButton: PlayButton, didTappedWith tag: Int, status: PlayButtonState)
-}
-
-protocol PlayButtonDataSource {
-    func initialState(for playButton: PlayButton) -> PlayButtonState
-    func playButton(playButton: PlayButton, playImageFor tag: Int) -> UIImage?
-    func playButton(playButton: PlayButton, pausedImageFor tag: Int) -> UIImage?
-}
-extension PlayButtonDataSource {
-    //NOTE:- Default Value
-    func initialState(for playButton: PlayButton) -> PlayButtonState {
-        return PlayButtonState.playing
-    }
-}
-
 class PlayButton: UIButton {
     
     private var playButtonState: PlayButtonState = .playing
@@ -105,5 +85,25 @@ class PlayButton: UIButton {
     override func layoutSubviews() {
         super.layoutSubviews()
         self.setupInitialButtonBehaviour()
+    }
+}
+
+public enum PlayButtonState {
+    case paused
+    case playing
+}
+protocol PlayButtonDelegate {
+    func playButton(playButton: PlayButton, didTappedWith tag: Int, status: PlayButtonState)
+}
+
+protocol PlayButtonDataSource {
+    func initialState(for playButton: PlayButton) -> PlayButtonState
+    func playButton(playButton: PlayButton, playImageFor tag: Int) -> UIImage?
+    func playButton(playButton: PlayButton, pausedImageFor tag: Int) -> UIImage?
+}
+extension PlayButtonDataSource {
+    //NOTE:- Default Value
+    func initialState(for playButton: PlayButton) -> PlayButtonState {
+        return PlayButtonState.playing
     }
 }

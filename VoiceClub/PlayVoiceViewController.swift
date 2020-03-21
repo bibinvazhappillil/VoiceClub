@@ -20,27 +20,42 @@ class PlayVoiceViewController: UIViewController {
     private var transparentLayer: CALayer = {
         let layer = CALayer()
         layer.backgroundColor = UIColor.black.cgColor
-        layer.opacity = 1
+        layer.opacity = 0.7
+        layer.masksToBounds = false
         return layer
     }()
     
+    fileprivate func setupPlayAudioButon() {
+        self.playAudioButton.delegate   = self
+        self.playAudioButton.dataSource = self
+        self.playAudioButton.tintColor  = VCColors.pausePlayButtonColor
+    }
+    
+    fileprivate func setupTransparentBalckLayer() {
+        self.audioPlayerBackgroundImageView.layer.addSublayer(self.transparentLayer)
+        self.transparentLayer.frame = self.view.bounds
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = .blue
         title = "Audio Name"
-        AudioManager.shared.delegate = self
-        self.playAudioButton.delegate = self
-        self.playAudioButton.dataSource = self
         
+        AudioManager.shared.delegate = self
         if initialPlayButtonState == .playing {
             playAudio()
         }
-        self.playAudioButton.tintColor = VCColors.pausePlayButtonColor
-        self.audioPlayerBackgroundImageView.layer.addSublayer(self.transparentLayer)
+        
+        setupPlayAudioButon()
+        setupTransparentBalckLayer()
     }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        self.transparentLayer.frame = self.view.bounds
+    }
+    
     func playAudio() {
         if let fileURL = Bundle.main.path(forResource: "audio", ofType: "mp3") {
-            
             AudioManager.shared.playAudio(from: fileURL)
             print("Continue processing")
         } else {
