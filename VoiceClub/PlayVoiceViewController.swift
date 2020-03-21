@@ -17,6 +17,9 @@ class PlayVoiceViewController: UIViewController {
     
     var initialPlayButtonState: PlayButtonState! = .playing
     
+    @IBOutlet weak var circularImageViewWidthConstraint: NSLayoutConstraint!
+    @IBOutlet weak var circularImageView: UIImageView!
+    
     private var transparentLayer: CALayer = {
         let layer = CALayer()
         layer.backgroundColor = UIColor.black.cgColor
@@ -24,6 +27,36 @@ class PlayVoiceViewController: UIViewController {
         layer.masksToBounds = false
         return layer
     }()
+    
+    fileprivate func setupCircularImageView() {
+        circularImageView.layer.cornerRadius = self.circularImageView.bounds.size.width / 2
+        circularImageView.layer.masksToBounds = true
+        circularImageView.addTransparentBlackLayer(with: 0.4)
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        title = "Eat That Frog"
+        
+        AudioManager.shared.delegate = self
+        if initialPlayButtonState == .playing {
+            playAudio()
+        }
+        
+        setupPlayAudioButon()
+        setupTransparentBalckLayer()
+        
+        setupCircularImageView()
+        
+        currentTimeLabel.textColor = VCColors.pausePlayButtonColor
+        
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        self.transparentLayer.frame = self.view.bounds
+        circularImageView.layer.cornerRadius = self.circularImageView.bounds.size.width / 2
+    }
     
     fileprivate func setupPlayAudioButon() {
         self.playAudioButton.delegate   = self
@@ -35,24 +68,7 @@ class PlayVoiceViewController: UIViewController {
         self.audioPlayerBackgroundImageView.layer.addSublayer(self.transparentLayer)
         self.transparentLayer.frame = self.view.bounds
     }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        title = "Audio Name"
-        
-        AudioManager.shared.delegate = self
-        if initialPlayButtonState == .playing {
-            playAudio()
-        }
-        
-        setupPlayAudioButon()
-        setupTransparentBalckLayer()
-    }
-    
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        self.transparentLayer.frame = self.view.bounds
-    }
+
     
     func playAudio() {
         if let fileURL = Bundle.main.path(forResource: "audio", ofType: "mp3") {
@@ -83,6 +99,7 @@ extension PlayVoiceViewController: PlayButtonDelegate {
         case .paused:
             AudioManager.shared.pauseAudio()
         }
+        self.circularImageView.bounce(scale: 1.1)
     }
 }
 

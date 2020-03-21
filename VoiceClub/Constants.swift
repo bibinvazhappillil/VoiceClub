@@ -20,7 +20,7 @@ enum VCColors {
     
 }
 extension VCColors {
-    static func getColor(red: CGFloat, green: CGFloat, blue: CGFloat) -> UIColor {
+    private static func getColor(red: CGFloat, green: CGFloat, blue: CGFloat) -> UIColor {
         let baseValue: CGFloat = 255.0
         return UIColor(red: red/baseValue, green: green/baseValue, blue: blue/baseValue, alpha: 1)
     }

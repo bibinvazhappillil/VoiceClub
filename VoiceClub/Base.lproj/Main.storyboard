@@ -68,21 +68,26 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="defaultPic" translatesAutoresizingMaskIntoConstraints="NO" id="09q-vf-7SF">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                             </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="defaultPic" translatesAutoresizingMaskIntoConstraints="NO" id="mfQ-nF-AB6">
+                                <rect key="frame" x="69" y="144" width="276" height="276"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="mfQ-nF-AB6" secondAttribute="height" multiplier="1:1" id="Oab-uK-EVi"/>
+                                </constraints>
+                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CWE-Cc-97i">
-                                <rect key="frame" x="171" y="432" width="72" height="32.5"/>
-                                <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <rect key="frame" x="171" y="266" width="72" height="32.5"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="27"/>
                                 <color key="textColor" systemColor="systemPinkColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wxH-Io-Hs0">
                                 <rect key="frame" x="192" y="832" width="30" height="30"/>
-                                <color key="backgroundColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="U9W-BV-scY"/>
                                     <constraint firstAttribute="width" constant="30" id="unV-RO-7yh"/>
                                 </constraints>
-                                <state key="normal" title="^"/>
                             </button>
                             <button opaque="NO" tag="10" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dVB-Ga-MQm" customClass="PlayButton" customModule="VoiceClub" customModuleProvider="target">
                                 <rect key="frame" x="182" y="752" width="50" height="50"/>
@@ -96,21 +101,26 @@
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="09q-vf-7SF" firstAttribute="leading" secondItem="mw9-Xb-LCh" secondAttribute="leading" id="9go-dw-lcN"/>
-                            <constraint firstItem="CWE-Cc-97i" firstAttribute="centerX" secondItem="Wz9-H4-1zd" secondAttribute="centerX" id="AkV-aB-3DV"/>
+                            <constraint firstItem="mfQ-nF-AB6" firstAttribute="width" secondItem="mw9-Xb-LCh" secondAttribute="width" multiplier="2:3" id="AQH-9w-8nC"/>
                             <constraint firstItem="mw9-Xb-LCh" firstAttribute="trailing" secondItem="09q-vf-7SF" secondAttribute="trailing" id="HkW-Z1-yXP"/>
                             <constraint firstItem="wxH-Io-Hs0" firstAttribute="top" secondItem="dVB-Ga-MQm" secondAttribute="bottom" constant="30" id="JVz-Um-J36"/>
                             <constraint firstItem="wxH-Io-Hs0" firstAttribute="bottom" secondItem="mw9-Xb-LCh" secondAttribute="bottom" id="Ndk-2H-f4K"/>
                             <constraint firstItem="wxH-Io-Hs0" firstAttribute="centerX" secondItem="Wz9-H4-1zd" secondAttribute="centerX" id="OUS-vW-hri"/>
+                            <constraint firstItem="CWE-Cc-97i" firstAttribute="centerX" secondItem="09q-vf-7SF" secondAttribute="centerX" id="ZfT-eA-wcI"/>
                             <constraint firstItem="09q-vf-7SF" firstAttribute="top" secondItem="Wz9-H4-1zd" secondAttribute="top" id="jJ6-zd-lVW"/>
                             <constraint firstItem="dVB-Ga-MQm" firstAttribute="centerX" secondItem="wxH-Io-Hs0" secondAttribute="centerX" id="kK4-wL-Ngm"/>
                             <constraint firstAttribute="bottom" secondItem="09q-vf-7SF" secondAttribute="bottom" id="lJ6-mz-xr7"/>
-                            <constraint firstItem="CWE-Cc-97i" firstAttribute="centerY" secondItem="Wz9-H4-1zd" secondAttribute="centerY" id="rJq-q7-NKs"/>
+                            <constraint firstItem="mfQ-nF-AB6" firstAttribute="top" secondItem="mw9-Xb-LCh" secondAttribute="top" constant="100" id="lsC-Jw-kDH"/>
+                            <constraint firstItem="CWE-Cc-97i" firstAttribute="centerY" secondItem="mfQ-nF-AB6" secondAttribute="centerY" id="sjm-dX-Q4W"/>
+                            <constraint firstItem="mfQ-nF-AB6" firstAttribute="centerX" secondItem="Wz9-H4-1zd" secondAttribute="centerX" id="syQ-FO-p26"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="mw9-Xb-LCh"/>
                     </view>
                     <navigationItem key="navigationItem" id="I6A-Gs-cC4"/>
                     <connections>
                         <outlet property="audioPlayerBackgroundImageView" destination="09q-vf-7SF" id="iJS-F6-ehc"/>
+                        <outlet property="circularImageView" destination="mfQ-nF-AB6" id="oF4-Yz-nDl"/>
+                        <outlet property="circularImageViewWidthConstraint" destination="AQH-9w-8nC" id="nfF-xf-yyq"/>
                         <outlet property="currentTimeLabel" destination="CWE-Cc-97i" id="H8w-Mk-kZJ"/>
                         <outlet property="playAudioButton" destination="dVB-Ga-MQm" id="HA3-cb-pSg"/>
                     </connections>
