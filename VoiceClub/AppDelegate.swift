@@ -11,10 +11,18 @@ import UIKit
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-
-
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+    fileprivate func setupUINavigationBar() {
         // Override point for customization after application launch.
+        
+        UINavigationBar.appearance().tintColor = VCColors.pausePlayButtonColor
+        UINavigationBar.appearance().isTranslucent = false
+        UINavigationBar.appearance().clipsToBounds = false
+        //        UINavigationBar.appearance().backgroundColor = UIColor.black
+        UINavigationBar.appearance().barStyle = UIBarStyle.black
+    }
+    
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        setupUINavigationBar()
         return true
     }
 
