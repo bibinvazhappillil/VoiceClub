@@ -18,11 +18,15 @@ enum VCColors {
         return getColor(red: 255, green: 25, blue: 16)
     }
     
+    static var circularTrackColor: UIColor {
+        return getColor(red: 0, green: 0, blue: 0)
+    }
+    
 }
 extension VCColors {
-    private static func getColor(red: CGFloat, green: CGFloat, blue: CGFloat) -> UIColor {
+    private static func getColor(red: CGFloat, green: CGFloat, blue: CGFloat, alpha: CGFloat = 1) -> UIColor {
         let baseValue: CGFloat = 255.0
-        return UIColor(red: red/baseValue, green: green/baseValue, blue: blue/baseValue, alpha: 1)
+        return UIColor(red: red/baseValue, green: green/baseValue, blue: blue/baseValue, alpha: alpha)
     }
 }
 

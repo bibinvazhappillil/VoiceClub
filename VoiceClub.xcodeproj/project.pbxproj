@@ -22,6 +22,7 @@
 		7B46D4DB2424207E0084CB1C /* AudioListCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B46D4D92424207E0084CB1C /* AudioListCollectionViewCell.swift */; };
 		7B46D4DC2424207E0084CB1C /* AudioListCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7B46D4DA2424207E0084CB1C /* AudioListCollectionViewCell.xib */; };
 		7B8B36D624257A5C001F8D0D /* AudioManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B8B36D524257A5C001F8D0D /* AudioManager.swift */; };
+		7BC5897A2427F2820061B7B5 /* CircularProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC589792427F2820061B7B5 /* CircularProgressBar.swift */; };
 		7BF237B52426293900AD1201 /* PlayButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BF237B42426293900AD1201 /* PlayButton.swift */; };
 		7BF237B72426952B00AD1201 /* audio.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7BF237B62426952A00AD1201 /* audio.mp3 */; };
 /* End PBXBuildFile section */
@@ -44,6 +45,7 @@
 		7B46D4D92424207E0084CB1C /* AudioListCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioListCollectionViewCell.swift; sourceTree = "<group>"; };
 		7B46D4DA2424207E0084CB1C /* AudioListCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AudioListCollectionViewCell.xib; sourceTree = "<group>"; };
 		7B8B36D524257A5C001F8D0D /* AudioManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioManager.swift; sourceTree = "<group>"; };
+		7BC589792427F2820061B7B5 /* CircularProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularProgressBar.swift; sourceTree = "<group>"; };
 		7BF237B42426293900AD1201 /* PlayButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayButton.swift; sourceTree = "<group>"; };
 		7BF237B62426952A00AD1201 /* audio.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = audio.mp3; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -136,6 +138,7 @@
 			isa = PBXGroup;
 			children = (
 				7BF237B42426293900AD1201 /* PlayButton.swift */,
+				7BC589792427F2820061B7B5 /* CircularProgressBar.swift */,
 			);
 			path = CustomComponents;
 			sourceTree = "<group>";
@@ -225,6 +228,7 @@
 				7B8B36D624257A5C001F8D0D /* AudioManager.swift in Sources */,
 				7B46D4BC242401DB0084CB1C /* SceneDelegate.swift in Sources */,
 				7B46D4CE242401EF0084CB1C /* Constants.swift in Sources */,
+				7BC5897A2427F2820061B7B5 /* CircularProgressBar.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

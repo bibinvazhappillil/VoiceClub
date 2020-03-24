@@ -10,7 +10,11 @@ import Foundation
 import AVFoundation
 
 protocol AudioManagerDelegate {
-    func audioPlayer(currentTime: String)
+    func audioPlayer(currentTimeText: String, currentTimeInSeconds: Double, totalTimeInSeconds: Double)
+}
+
+protocol AudioManagerDataSource {
+    
 }
 
 class AudioManager {
@@ -18,26 +22,35 @@ class AudioManager {
     static var shared = AudioManager()
     
     var delegate: AudioManagerDelegate?
+    
+    var dataSource: AudioManagerDataSource?
+    
     private var playerItem: AVPlayerItem!
 
     private var audioPlayer: AVPlayer?
-    private var timeObserverToken: Any?
     
+    private var timeObserverToken: Any?
+        
     private init() { }
     
     func playAudio(from fileURL: String) {
+        
         if audioPlayer != nil {
             audioPlayer?.play()
             return
         }
+        
         self.playerItem = AVPlayerItem(url: URL(fileURLWithPath: fileURL))
         self.audioPlayer = AVPlayer(playerItem: self.playerItem)
+        self.audioPlayer?.playImmediately(atRate: 2.0)
         audioPlayer?.play()
         addPeriodicTimeObserver()
     }
+    
     func pauseAudio() {
         self.audioPlayer?.pause()
     }
+    
     func stopAudio() {
         self.audioPlayer?.pause()
         self.removePeriodicTimeObserver()
@@ -50,8 +63,15 @@ class AudioManager {
         let time = CMTime(seconds: 1, preferredTimescale: timeScale)
         
         timeObserverToken = audioPlayer?.addPeriodicTimeObserver(forInterval: time, queue: .main) { [weak self] time in
-//            print(time)
-            self?.delegate?.audioPlayer(currentTime: self?.audioPlayer?.durationText() ?? "")
+
+            let totalTimeInSeconds: Double = self?.playerItem.duration.seconds ?? 0
+            let currentTimeInSeconds: Double = self?.playerItem.currentTime().seconds ?? 0
+            let remainingTime = totalTimeInSeconds - currentTimeInSeconds
+            let durationText = self?.audioPlayer?.durationText(for: remainingTime) ?? ""
+            
+            self?.delegate?.audioPlayer(currentTimeText: durationText,
+                                        currentTimeInSeconds: currentTimeInSeconds,
+                                        totalTimeInSeconds: totalTimeInSeconds)
             
         }
     }
@@ -64,14 +84,16 @@ class AudioManager {
     }
 }
 extension AVPlayer {
-    func durationText() -> String {
-        let seconds = Int(self.currentItem?.currentTime().seconds ?? 0)
-        let hour = seconds / 3600
-        let minute = (seconds % 3600) / 60
-        let second = (seconds % 3600) % 60
-        if hour == 0 {
-            return "\(minute): \(second)"
-        }
+    
+    func getFormattedString(_ number: Int) -> String {
+        return number < 10 ? "0\(number)" : "\(number)"
+    }
+    
+    func durationText(for seconds: Double) -> String {
+        let seconds = Int(seconds)
+        let hour = getFormattedString(seconds / 3600)
+        let minute = getFormattedString((seconds % 3600) / 60)
+        let second = getFormattedString((seconds % 3600) % 60)
         return "\(hour): \(minute): \(second)"
     }
 }

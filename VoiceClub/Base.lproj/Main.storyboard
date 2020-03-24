@@ -89,7 +89,7 @@
                                     <constraint firstAttribute="width" constant="30" id="unV-RO-7yh"/>
                                 </constraints>
                             </button>
-                            <button opaque="NO" tag="10" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dVB-Ga-MQm" customClass="PlayButton" customModule="VoiceClub" customModuleProvider="target">
+                            <button opaque="NO" tag="10" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dVB-Ga-MQm" customClass="PlayButton" customModule="VoiceClub" customModuleProvider="target">
                                 <rect key="frame" x="182" y="752" width="50" height="50"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
@@ -97,16 +97,36 @@
                                     <constraint firstAttribute="width" constant="50" id="zdi-Wg-Z9L"/>
                                 </constraints>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dcz-8v-COV">
+                                <rect key="frame" x="315" y="762" width="30" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="30" id="EZi-0b-Zpa"/>
+                                    <constraint firstAttribute="height" constant="30" id="s9i-AD-PxH"/>
+                                </constraints>
+                                <state key="normal" image="plus"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yDJ-X7-sS6">
+                                <rect key="frame" x="69" y="762" width="30" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="LIC-WX-5Yi"/>
+                                    <constraint firstAttribute="width" constant="30" id="dWa-ps-gch"/>
+                                </constraints>
+                                <state key="normal" image="minus"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="yDJ-X7-sS6" firstAttribute="top" secondItem="dVB-Ga-MQm" secondAttribute="bottom" constant="-40" id="8dw-hZ-kKj"/>
                             <constraint firstItem="09q-vf-7SF" firstAttribute="leading" secondItem="mw9-Xb-LCh" secondAttribute="leading" id="9go-dw-lcN"/>
                             <constraint firstItem="mfQ-nF-AB6" firstAttribute="width" secondItem="mw9-Xb-LCh" secondAttribute="width" multiplier="2:3" id="AQH-9w-8nC"/>
                             <constraint firstItem="mw9-Xb-LCh" firstAttribute="trailing" secondItem="09q-vf-7SF" secondAttribute="trailing" id="HkW-Z1-yXP"/>
                             <constraint firstItem="wxH-Io-Hs0" firstAttribute="top" secondItem="dVB-Ga-MQm" secondAttribute="bottom" constant="30" id="JVz-Um-J36"/>
+                            <constraint firstItem="dcz-8v-COV" firstAttribute="centerY" secondItem="dVB-Ga-MQm" secondAttribute="centerY" id="LFK-uY-zaJ"/>
                             <constraint firstItem="wxH-Io-Hs0" firstAttribute="bottom" secondItem="mw9-Xb-LCh" secondAttribute="bottom" id="Ndk-2H-f4K"/>
                             <constraint firstItem="wxH-Io-Hs0" firstAttribute="centerX" secondItem="Wz9-H4-1zd" secondAttribute="centerX" id="OUS-vW-hri"/>
                             <constraint firstItem="CWE-Cc-97i" firstAttribute="centerX" secondItem="09q-vf-7SF" secondAttribute="centerX" id="ZfT-eA-wcI"/>
+                            <constraint firstItem="yDJ-X7-sS6" firstAttribute="leading" secondItem="mfQ-nF-AB6" secondAttribute="leading" id="bKd-IV-Q9m"/>
+                            <constraint firstItem="dcz-8v-COV" firstAttribute="trailing" secondItem="mfQ-nF-AB6" secondAttribute="trailing" id="iFt-So-Pxa"/>
                             <constraint firstItem="09q-vf-7SF" firstAttribute="top" secondItem="Wz9-H4-1zd" secondAttribute="top" id="jJ6-zd-lVW"/>
                             <constraint firstItem="dVB-Ga-MQm" firstAttribute="centerX" secondItem="wxH-Io-Hs0" secondAttribute="centerX" id="kK4-wL-Ngm"/>
                             <constraint firstAttribute="bottom" secondItem="09q-vf-7SF" secondAttribute="bottom" id="lJ6-mz-xr7"/>
@@ -122,7 +142,9 @@
                         <outlet property="circularImageView" destination="mfQ-nF-AB6" id="oF4-Yz-nDl"/>
                         <outlet property="circularImageViewWidthConstraint" destination="AQH-9w-8nC" id="nfF-xf-yyq"/>
                         <outlet property="currentTimeLabel" destination="CWE-Cc-97i" id="H8w-Mk-kZJ"/>
+                        <outlet property="minusButton" destination="yDJ-X7-sS6" id="xnW-0D-KY1"/>
                         <outlet property="playAudioButton" destination="dVB-Ga-MQm" id="HA3-cb-pSg"/>
+                        <outlet property="plusButton" destination="dcz-8v-COV" id="7d2-jz-MU8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yek-dJ-xIt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -149,6 +171,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="defaultPic" width="720" height="1280"/>
+        <image name="defaultPic" width="1600" height="2397"/>
+        <image name="minus" width="512" height="512"/>
+        <image name="plus" width="512" height="512"/>
     </resources>
 </document>

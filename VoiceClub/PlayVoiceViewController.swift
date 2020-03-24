@@ -15,8 +15,11 @@ class PlayVoiceViewController: UIViewController {
     @IBOutlet weak var audioPlayerBackgroundImageView: UIImageView!
     @IBOutlet weak var playAudioButton: PlayButton!
     
-    var initialPlayButtonState: PlayButtonState! = .playing
+    @IBOutlet weak var plusButton: UIButton!
+    @IBOutlet weak var minusButton: UIButton!
     
+    var initialPlayButtonState: PlayButtonState! = .playing
+    var circularImageViewProgressBar: CircularProgressView?
     @IBOutlet weak var circularImageViewWidthConstraint: NSLayoutConstraint!
     @IBOutlet weak var circularImageView: UIImageView!
     
@@ -31,7 +34,7 @@ class PlayVoiceViewController: UIViewController {
     fileprivate func setupCircularImageView() {
         circularImageView.layer.cornerRadius = self.circularImageView.bounds.size.width / 2
         circularImageView.layer.masksToBounds = true
-        circularImageView.addTransparentBlackLayer(with: 0.4)
+        circularImageView.addTransparentBlackLayer(with: 0.6)
     }
     
     override func viewDidLoad() {
@@ -39,6 +42,7 @@ class PlayVoiceViewController: UIViewController {
         title = "Eat That Frog"
         
         AudioManager.shared.delegate = self
+        
         if initialPlayButtonState == .playing {
             playAudio()
         }
@@ -47,15 +51,29 @@ class PlayVoiceViewController: UIViewController {
         setupTransparentBalckLayer()
         
         setupCircularImageView()
+        currentTimeLabel.textColor = .white
+        currentTimeLabel.text = "00: 00: 00"
         
-        currentTimeLabel.textColor = VCColors.pausePlayButtonColor
-        
+        addCircularProgressBar()
+        setupTintColors()
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         self.transparentLayer.frame = self.view.bounds
         circularImageView.layer.cornerRadius = self.circularImageView.bounds.size.width / 2
+    }
+    
+    private func setupTintColors() {
+        self.playAudioButton.tintColor = VCColors.pausePlayButtonColor
+        self.minusButton.tintColor = .white
+        self.plusButton.tintColor = .white
+    }
+    
+    fileprivate func addCircularProgressBar() {
+        self.circularImageViewProgressBar = CircularProgressView(layerBounds: self.circularImageView.bounds)
+        self.circularImageView.layer.addSublayer(self.circularImageViewProgressBar!)
+        self.circularImageViewProgressBar?.dataSource = self
     }
     
     fileprivate func setupPlayAudioButon() {
@@ -69,7 +87,6 @@ class PlayVoiceViewController: UIViewController {
         self.transparentLayer.frame = self.view.bounds
     }
 
-    
     func playAudio() {
         if let fileURL = Bundle.main.path(forResource: "audio", ofType: "mp3") {
             AudioManager.shared.playAudio(from: fileURL)
@@ -86,8 +103,12 @@ class PlayVoiceViewController: UIViewController {
 }
 
 extension PlayVoiceViewController: AudioManagerDelegate {
-    func audioPlayer(currentTime: String) {
-        self.currentTimeLabel.text = "\(currentTime)"
+    
+    func audioPlayer(currentTimeText: String, currentTimeInSeconds: Double, totalTimeInSeconds: Double) {
+        self.currentTimeLabel.text = "\(currentTimeText)"
+        let currentStroke: CGFloat = CGFloat(currentTimeInSeconds / totalTimeInSeconds)
+        print(currentStroke)
+        self.circularImageViewProgressBar?.setProgress(to: currentStroke)
     }
 }
 
@@ -115,5 +136,23 @@ extension PlayVoiceViewController: PlayButtonDataSource {
     
     func playButton(playButton: PlayButton, pausedImageFor tag: Int) -> UIImage? {
         return VCImages.pause
+    }
+}
+
+extension PlayVoiceViewController: CircularProgressViewDataSource {
+    func progressView(trackColorFor tag: Int) -> UIColor {
+        return VCColors.pausePlayButtonColor
+    }
+    
+    func progressView(progressFillColorFor tag: Int) -> UIColor {
+        return VCColors.circularTrackColor
+    }
+    
+    func progressView(trackRadiusFor tag: Int) -> CGFloat {
+        return self.circularImageView.bounds.width / 2
+    }
+    
+    func progressView(trackWidthFor tag: Int) -> CGFloat {
+        return 5
     }
 }

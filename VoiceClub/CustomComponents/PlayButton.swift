@@ -54,7 +54,6 @@ class PlayButton: UIButton {
         delegate?.playButton(playButton: sender, didTappedWith: sender.tag, status: self.playButtonState)
     }
     
-    
     override func draw(_ rect: CGRect) {
         super.draw(rect)
 //        print("draw()")
