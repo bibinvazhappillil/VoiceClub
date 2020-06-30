@@ -100,6 +100,14 @@ class PlayVoiceViewController: UIViewController {
         AudioManager.shared.stopAudio()
     }
     
+    @IBAction func didTappedSpeedMinusButton(_ sender: UIButton) {
+        AudioManager.shared.decreaseRate()
+    }
+    
+    @IBAction func didTappedSpeedPlusButton(_ sender: UIButton) {
+        AudioManager.shared.increaseRate()
+    }
+    
 }
 
 extension PlayVoiceViewController: AudioManagerDelegate {
@@ -107,7 +115,6 @@ extension PlayVoiceViewController: AudioManagerDelegate {
     func audioPlayer(currentTimeText: String, currentTimeInSeconds: Double, totalTimeInSeconds: Double) {
         self.currentTimeLabel.text = "\(currentTimeText)"
         let currentStroke: CGFloat = CGFloat(currentTimeInSeconds / totalTimeInSeconds)
-        print(currentStroke)
         self.circularImageViewProgressBar?.setProgress(to: currentStroke)
     }
 }

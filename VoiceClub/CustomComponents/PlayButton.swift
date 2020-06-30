@@ -29,7 +29,6 @@ class PlayButton: UIButton {
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         self.addTarget(self, action: #selector(didTappedMe(sender:)), for: .touchUpInside)
-        
     }
     
     private func togglePlayButtonState() {

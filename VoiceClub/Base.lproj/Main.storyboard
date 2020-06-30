@@ -104,6 +104,9 @@
                                     <constraint firstAttribute="height" constant="30" id="s9i-AD-PxH"/>
                                 </constraints>
                                 <state key="normal" image="plus"/>
+                                <connections>
+                                    <action selector="didTappedSpeedPlusButton:" destination="rqM-c8-Ax4" eventType="touchUpInside" id="fd2-pV-5qG"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yDJ-X7-sS6">
                                 <rect key="frame" x="69" y="762" width="30" height="30"/>
@@ -112,6 +115,9 @@
                                     <constraint firstAttribute="width" constant="30" id="dWa-ps-gch"/>
                                 </constraints>
                                 <state key="normal" image="minus"/>
+                                <connections>
+                                    <action selector="didTappedSpeedMinusButton:" destination="rqM-c8-Ax4" eventType="touchUpInside" id="kaV-ly-uIM"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

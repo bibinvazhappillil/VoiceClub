@@ -30,21 +30,32 @@ class AudioManager {
     private var audioPlayer: AVPlayer?
     
     private var timeObserverToken: Any?
-        
+    
     private init() { }
     
     func playAudio(from fileURL: String) {
-        
+
         if audioPlayer != nil {
             audioPlayer?.play()
             return
         }
-        
+
         self.playerItem = AVPlayerItem(url: URL(fileURLWithPath: fileURL))
         self.audioPlayer = AVPlayer(playerItem: self.playerItem)
         self.audioPlayer?.playImmediately(atRate: 2.0)
         audioPlayer?.play()
         addPeriodicTimeObserver()
+    }
+    
+    func increaseRate() {
+        print("currentRate: \(self.audioPlayer?.rate)")
+        self.audioPlayer?.rate += 0.5
+    }
+    
+    func decreaseRate() {
+        print("currentRate: \(self.audioPlayer?.rate)")
+        self.audioPlayer?.rate -= 0.5
+        
     }
     
     func pauseAudio() {

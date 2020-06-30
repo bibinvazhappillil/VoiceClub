@@ -51,7 +51,6 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     
     func presentAudioPlayVC() {
         let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "PlayVoiceViewController") as! PlayVoiceViewController
-        
 //        let vc = PlayVoiceViewController()
         self.navigationController?.pushViewController(vc, animated: true)
     }
