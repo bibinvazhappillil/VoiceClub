@@ -1,8 +1,8 @@
 # VoiceClub
 Open source AudioBook reader in iOS
-# Dynamic-tableView-Cell
+# Open source AudioBook reader in iOS.
 
-<h1>Open source AudioBook reader in iOS.</h1>
+<h1></h1>
 <table>
 <td width="25%">
 <img src="images/img3.png"></img>
