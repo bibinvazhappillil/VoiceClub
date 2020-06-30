@@ -39,7 +39,7 @@ class PlayVoiceViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Eat That Frog"
+        title = ""
         
         AudioManager.shared.delegate = self
         
