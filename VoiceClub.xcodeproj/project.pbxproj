@@ -80,22 +80,17 @@
 		7B46D4B8242401DB0084CB1C /* VoiceClub */ = {
 			isa = PBXGroup;
 			children = (
+				7B46D4B9242401DB0084CB1C /* AppDelegate.swift */,
+				7B46D4BB242401DB0084CB1C /* SceneDelegate.swift */,
+				EF53704E24AB2471002F9B75 /* View */,
+				EF53704C24AB241D002F9B75 /* ViewController */,
 				7BF237B32426292200AD1201 /* CustomComponents */,
 				7B8B36D4242550C1001F8D0D /* SampleAudio */,
 				7B46D4DD242420950084CB1C /* CommonExtensions */,
-				7B46D4D82424205C0084CB1C /* AudioListCollectionViewCell */,
-				7B46D4D72424203E0084CB1C /* LastPlayedCollectionViewCell */,
-				7B46D4B9242401DB0084CB1C /* AppDelegate.swift */,
-				7B46D4BB242401DB0084CB1C /* SceneDelegate.swift */,
-				7B46D4BD242401DB0084CB1C /* ViewController.swift */,
-				7B46D4BF242401DB0084CB1C /* Main.storyboard */,
+				EF53705024AB2496002F9B75 /* Managers */,
+				EF53704F24AB248A002F9B75 /* Utils */,
 				7B46D4C2242401DE0084CB1C /* Assets.xcassets */,
-				7B46D4C4242401DE0084CB1C /* LaunchScreen.storyboard */,
 				7B46D4C7242401DE0084CB1C /* Info.plist */,
-				7B46D4CD242401EF0084CB1C /* Constants.swift */,
-				7B46D4CF242404AE0084CB1C /* BaseViewController.swift */,
-				7B46D4D1242413800084CB1C /* PlayVoiceViewController.swift */,
-				7B8B36D524257A5C001F8D0D /* AudioManager.swift */,
 			);
 			path = VoiceClub;
 			sourceTree = "<group>";
@@ -137,10 +132,55 @@
 		7BF237B32426292200AD1201 /* CustomComponents */ = {
 			isa = PBXGroup;
 			children = (
+				EF53704D24AB244D002F9B75 /* CollectionCells */,
 				7BF237B42426293900AD1201 /* PlayButton.swift */,
 				7BC589792427F2820061B7B5 /* CircularProgressBar.swift */,
 			);
 			path = CustomComponents;
+			sourceTree = "<group>";
+		};
+		EF53704C24AB241D002F9B75 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				7B46D4CF242404AE0084CB1C /* BaseViewController.swift */,
+				7B46D4D1242413800084CB1C /* PlayVoiceViewController.swift */,
+				7B46D4BD242401DB0084CB1C /* ViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		EF53704D24AB244D002F9B75 /* CollectionCells */ = {
+			isa = PBXGroup;
+			children = (
+				7B46D4D82424205C0084CB1C /* AudioListCollectionViewCell */,
+				7B46D4D72424203E0084CB1C /* LastPlayedCollectionViewCell */,
+			);
+			path = CollectionCells;
+			sourceTree = "<group>";
+		};
+		EF53704E24AB2471002F9B75 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				7B46D4BF242401DB0084CB1C /* Main.storyboard */,
+				7B46D4C4242401DE0084CB1C /* LaunchScreen.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		EF53704F24AB248A002F9B75 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				7B46D4CD242401EF0084CB1C /* Constants.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		EF53705024AB2496002F9B75 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				7B8B36D524257A5C001F8D0D /* AudioManager.swift */,
+			);
+			path = Managers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
