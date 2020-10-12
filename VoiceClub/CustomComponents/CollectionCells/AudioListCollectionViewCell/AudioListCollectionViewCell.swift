@@ -10,17 +10,24 @@ import UIKit
 
 class AudioListCollectionViewCell: UICollectionViewCell {
 
-    @IBOutlet weak var audioImageButton: UIButton!
+    @IBOutlet weak var backGroundView: UIView!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        backGroundView?.cornerRadius(10)
     }
     
     override func draw(_ rect: CGRect) {
         super.draw(rect)
-        self.audioImageButton.layer.cornerRadius = self.audioImageButton.bounds.size.height / 2
-        self.layer.cornerRadius = 5
-        self.layer.borderColor = UIColor.systemPink.cgColor
-        self.layer.borderWidth = 1
+//        self.audioImageButton.layer.cornerRadius = self.audioImageButton.bounds.size.height / 2
+//        self.layer.cornerRadius = 5
+//        self.layer.borderColor = UIColor.systemPink.cgColor
+//        self.layer.borderWidth = 1
+    }
+}
+
+extension UIView {
+    func cornerRadius(_ radius: CGFloat) {
+        self.layer.cornerRadius = radius
     }
 }

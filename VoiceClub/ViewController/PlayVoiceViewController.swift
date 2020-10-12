@@ -23,6 +23,8 @@ class PlayVoiceViewController: UIViewController {
     @IBOutlet weak var circularImageViewWidthConstraint: NSLayoutConstraint!
     @IBOutlet weak var circularImageView: UIImageView!
     
+    var contentURL: URL?
+    
     private var transparentLayer: CALayer = {
         let layer = CALayer()
         layer.backgroundColor = UIColor.black.cgColor
@@ -88,8 +90,17 @@ class PlayVoiceViewController: UIViewController {
     }
 
     func playAudio() {
+        
+        if let contentURL = self.contentURL {
+            AudioManager.shared.playAudio(from: contentURL)
+        } else {
+            runDummyAudio()
+        }
+    }
+    
+    private func runDummyAudio() {
         if let fileURL = Bundle.main.path(forResource: "audio", ofType: "mp3") {
-            AudioManager.shared.playAudio(from: fileURL)
+            AudioManager.shared.playAudio(from: URL(fileURLWithPath: fileURL))
             print("Continue processing")
         } else {
             print("Error: No file with specified name exists")

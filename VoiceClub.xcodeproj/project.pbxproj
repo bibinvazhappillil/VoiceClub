@@ -10,7 +10,7 @@
 		7B0D87C92426A588009FBA19 /* UIView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B0D87C82426A588009FBA19 /* UIView+Ext.swift */; };
 		7B46D4BA242401DB0084CB1C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B46D4B9242401DB0084CB1C /* AppDelegate.swift */; };
 		7B46D4BC242401DB0084CB1C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B46D4BB242401DB0084CB1C /* SceneDelegate.swift */; };
-		7B46D4BE242401DB0084CB1C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B46D4BD242401DB0084CB1C /* ViewController.swift */; };
+		7B46D4BE242401DB0084CB1C /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B46D4BD242401DB0084CB1C /* HomeViewController.swift */; };
 		7B46D4C1242401DB0084CB1C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7B46D4BF242401DB0084CB1C /* Main.storyboard */; };
 		7B46D4C3242401DE0084CB1C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7B46D4C2242401DE0084CB1C /* Assets.xcassets */; };
 		7B46D4C6242401DE0084CB1C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7B46D4C4242401DE0084CB1C /* LaunchScreen.storyboard */; };
@@ -32,7 +32,7 @@
 		7B46D4B6242401DB0084CB1C /* VoiceClub Debug.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "VoiceClub Debug.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7B46D4B9242401DB0084CB1C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7B46D4BB242401DB0084CB1C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		7B46D4BD242401DB0084CB1C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		7B46D4BD242401DB0084CB1C /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		7B46D4C0242401DB0084CB1C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		7B46D4C2242401DE0084CB1C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7B46D4C5242401DE0084CB1C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -144,7 +144,7 @@
 			children = (
 				7B46D4CF242404AE0084CB1C /* BaseViewController.swift */,
 				7B46D4D1242413800084CB1C /* PlayVoiceViewController.swift */,
-				7B46D4BD242401DB0084CB1C /* ViewController.swift */,
+				7B46D4BD242401DB0084CB1C /* HomeViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -282,7 +282,7 @@
 				7B0D87C92426A588009FBA19 /* UIView+Ext.swift in Sources */,
 				7BF237B52426293900AD1201 /* PlayButton.swift in Sources */,
 				7B46D4D5242414BD0084CB1C /* LastPlayedCollectionViewCell.swift in Sources */,
-				7B46D4BE242401DB0084CB1C /* ViewController.swift in Sources */,
+				7B46D4BE242401DB0084CB1C /* HomeViewController.swift in Sources */,
 				7B46D4DB2424207E0084CB1C /* AudioListCollectionViewCell.swift in Sources */,
 				7B46D4BA242401DB0084CB1C /* AppDelegate.swift in Sources */,
 				7B46D4D2242413800084CB1C /* PlayVoiceViewController.swift in Sources */,
@@ -382,6 +382,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = VoiceClub/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -516,6 +517,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = VoiceClub/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -534,6 +536,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = VoiceClub/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

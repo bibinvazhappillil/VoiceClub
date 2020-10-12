@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: BaseViewController {
+class HomeViewController: BaseViewController {
 
     @IBOutlet weak var audioCollectionView: UICollectionView!
     override func viewDidLoad() {
@@ -17,7 +17,16 @@ class ViewController: BaseViewController {
     
         title = "Browse"
         setupCollectionView()
+        
     }
+    
+    @IBAction func didTappedAddButton(_ sender: UIBarButtonItem) {
+        let documentPicker = UIDocumentPickerViewController(documentTypes: ["public.mp3"], in: .open)
+        documentPicker.delegate = self
+        self.present(documentPicker, animated: true, completion: nil)
+    }
+    
+    
 
     private func setupCollectionView() {
         self.audioCollectionView.dataSource = self
@@ -28,7 +37,8 @@ class ViewController: BaseViewController {
 
 }
 
-extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+
+extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
@@ -37,26 +47,26 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        if indexPath.row < 3 {
+        /*if indexPath.row < 3 {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "LastPlayedCollectionViewCell", for: indexPath) as! LastPlayedCollectionViewCell
             return cell
-        }
+        }*/
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "AudioListCollectionViewCell", for: indexPath) as! AudioListCollectionViewCell
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        presentAudioPlayVC()
+        presentAudioPlayVC(contentURL: nil)
     }
     
-    func presentAudioPlayVC() {
+    func presentAudioPlayVC(contentURL: URL?) {
         let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "PlayVoiceViewController") as! PlayVoiceViewController
-//        let vc = PlayVoiceViewController()
+        vc.contentURL = contentURL
         self.navigationController?.pushViewController(vc, animated: true)
     }
 }
 
-extension ViewController: UICollectionViewDelegateFlowLayout {
+extension HomeViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
@@ -73,13 +83,20 @@ extension ViewController: UICollectionViewDelegateFlowLayout {
                         layout collectionViewLayout: UICollectionViewLayout,
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
         
-        if indexPath.row < 3 {
+        /*if indexPath.row < 3 {
             let sideLength = (collectionView.bounds.size.width / 3) - 10
             return CGSize(width: sideLength, height: sideLength)
-        }
+        }*/
         let width = collectionView.bounds.size.width
-        return CGSize(width: width, height: 70)
+        return CGSize(width: ((width / 2) - 10) , height: 200)
         
     }
 
+}
+
+extension HomeViewController: UIDocumentPickerDelegate {
+    func documentPicker(_ controller: UIDocumentPickerViewController, didPickDocumentsAt urls: [URL]) {
+        print(urls.first?.absoluteString)
+        presentAudioPlayVC(contentURL: urls.first)
+    }
 }
